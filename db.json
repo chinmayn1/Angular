@@ -1,0 +1,21 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "firstName": "csdw",
+      "lastName": "cs",
+      "mobile": "csd",
+      "salary": "scd"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
