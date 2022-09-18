@@ -13,11 +13,12 @@ export class EmployeeDashboardComponent implements OnInit {
   formValue!: FormGroup;
   employeeModalobject: Employeemodal = new Employeemodal();
   employeeData !: any;
+  showAdd: boolean= true;
+  showUpdate!:boolean;
   constructor(private formBuilder: FormBuilder, private api: ApiService) { }
 
   ngOnInit(): void {
     this.formValue = this.formBuilder.group({
-      id: [''],
       firstName: [''],
       lastName: [''],
       mobile: [''],
@@ -26,7 +27,6 @@ export class EmployeeDashboardComponent implements OnInit {
     this.getAllEmployee();
   }
   postEmployeeDetails() {
-    this.employeeModalobject.id = this.formValue.value.id;
     this.employeeModalobject.firstName = this.formValue.value.firstName;
     this.employeeModalobject.lastName = this.formValue.value.lastName;
     this.employeeModalobject.mobile = this.formValue.value.mobile;
@@ -60,6 +60,8 @@ export class EmployeeDashboardComponent implements OnInit {
   }
 
   onEdit(row:any){
+    this.showAdd=false;
+    this.showUpdate=true;
     this.employeeModalobject.id=row.id;
     this.formValue.controls['firstName'].setValue(row.firstName);
     this.formValue.controls['lastName'].setValue(row.lastName);
